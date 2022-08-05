@@ -1,6 +1,7 @@
 const Koa = require('koa');
 const Router = require('koa-router');
 const bodyParser = require('koa-body');
+const http = require('http')
 const app = new Koa();
 const router = new Router();
 
@@ -11,7 +12,8 @@ app.use(bodyParser({
 }));
 
 const tickets = []
-const PORT = 3005
+const port= process.env.PORT|| 7070;
+const server = http.createServer(app.callback()).listen(port)
 
 router.get('/ticket', (ctx) => {
     const res = []
@@ -37,7 +39,7 @@ app
     .use(router.routes())
     .use(router.allowedMethods());
 
-app.listen(PORT)
+// app.listen(PORT)
 
 
 

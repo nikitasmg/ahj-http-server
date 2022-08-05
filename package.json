@@ -6,8 +6,12 @@
   "author": "Nikita Smagin <nikita.s@prmnd.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prestart": "npm install",
+    "start": "forever server.js",
+    "watch": "forever -w server.js"
+  },
+  "engines": {
+    "node": "11.x"
   },
   "dependencies": {
     "koa": "^2.13.4",
