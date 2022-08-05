@@ -11,6 +11,7 @@ app.use(bodyParser({
 }));
 
 const tickets = []
+const PORT = 3005
 
 router.get('/ticket', (ctx) => {
     const res = []
@@ -36,7 +37,7 @@ app
     .use(router.routes())
     .use(router.allowedMethods());
 
-app.listen(3005)
+app.listen(PORT)
 
 
 
