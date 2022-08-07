@@ -2,14 +2,18 @@ const Koa = require('koa');
 const Router = require('koa-router');
 const bodyParser = require('koa-body');
 const http = require('http')
+const cors = require('@koa/cors')
 const app = new Koa();
 const router = new Router();
+
 
 app.use(bodyParser({
     formidable: {uploadDir: './uploads'},
     multipart: true,
     urlencoded: true
 }));
+
+app.use(cors())
 
 const tickets = []
 const port= process.env.PORT|| 7070;
